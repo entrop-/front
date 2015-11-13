@@ -1,0 +1,12 @@
+$pink: #e64d86;
+
+
+
+.clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+

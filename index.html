@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="pix">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pixers logowanie</title>
+    <link href="build/css/style.css" rel="stylesheet">
+    <script src="node_modules/angular/angular.min.js"></script>
+</head>
+<body ng-controller="LoginController">
+        <form novalidate data-url="//api.test/auth" ng-submit="subForm.$valid && sendForm(user)" method="post" name="subForm" ng-hide="user.statusOK">
+        <fieldset>
+            <label for="email">
+                <span ng-class="{'error': !user.email && subForm.$submitted}">Adres e-mail:</span>
+                <input id="email" type="email" name="email" required ng-model="user.email" ng-class="{'error': !user.email && subForm.$submitted}"/>
+            </label>
+            <label for="password">
+                <span ng-class="{'error': !user.password && subForm.$submitted && !user.strength}">Hasło: </span>
+                <input type="password" id="password" name="password" password-strength required ng-model="user.password" ng-class="{'error': !user.password && subForm.$submitted && !user.strength}" />
+            </label>
+            <input type="submit" value="login" />
+        </fieldset>
+        <aside>
+            <div ng-show="user.statusOK" class="success">Logowanie poprawne</div>
+            <div ng-show="user.invalidAuth">niepoprawne login lub hasło</div>
+            <div ng-show="user.wrongData">niepoprawne dane</div>
+            <div ng-show="user.serviceDown">błąd usługi</div>
+        </aside>
+    </form>
+    <script src="build/js/script.min.js"></script>
+</body>
+</html>

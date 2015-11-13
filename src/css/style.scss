@@ -1,0 +1,111 @@
+@import 'reset';
+@import 'common';
+
+body {
+    background: url('http://pixers.pl/blog/wp-content/themes/pixers/images/bg.jpg');
+    font-family: Arial;
+    form {
+        fieldset {
+            //box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            border: 0px;
+            //border-radius: 20px;
+            background: white;
+            width: 700px;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            padding: 20px;
+            color: $pink;
+            label {
+                display: block;
+                margin-bottom: 20px;
+                float: left;
+                box-sizing: border-box;
+                width: 50%;
+                span {
+                    margin-right: 10px;
+                    line-height: 18px;
+                    padding: 5px 0px;
+                }
+                input {
+                    border: 1px solid black;
+                    line-height: 18px;
+                    font-size: 16px;
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+
+                }
+                @media screen and (min-width: 781px) {
+                    text-align: center;
+                    &:nth-child(2){
+                        float: right;
+                    }
+                }
+                @media screen and (max-width: 780px) and (min-width: 421px) {
+                    float: none;
+                    width: 100%;
+                    @extend .clearfix;
+                    span {
+                        display: inline-block;
+                        margin-right: 0px;
+                        float: left;
+                        width: 30%;
+                    }
+                    input {
+                        float: left;
+                        width: 70%;
+                    }
+                }
+                @media screen and (max-width: 420px) {
+                    float: none;
+                    width: 100%;
+                    input {
+                        display: block;
+                        margin-top: 10px;
+                        width: 100%;
+                    }
+                }
+            }
+            input[type="submit"]{
+                width: 100px;
+                border: 0px;
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+                padding: 7px;
+                text-transform: uppercase;
+                color:white;
+                background: $pink;
+                clear: both;
+                font-size: 16px;
+                &:hover {
+                    background: black;
+                    cursor: pointer;
+                }
+            }
+            @media screen and (max-width: 780px) {
+                width: 80%;
+            }
+        }
+        aside {
+            div {
+                color: maroon;
+                background: red;
+                border: 1px dashed maroon;
+                &.success {
+                    color: green;
+                    background: greenyellow;
+                    border-color: green;
+                }
+            }
+        }
+    }
+    .error {
+        color: red;
+        &:not(span) {
+            border: 1px solid red;
+        }
+    }
+}
